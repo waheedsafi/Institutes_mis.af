@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\institute_manager;
 
+use App\Http\Controllers\institute_manager\card\CardController;
+use App\Models\Setting;
+
 
     use Mpdf\Mpdf;
     use Mpdf\Mpdf as PDF;
@@ -103,6 +106,10 @@ namespace App\Http\Controllers\institute_manager;
                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" class="text-danger" viewBox="0 0 24 24" width="24px" fill="#F08080"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
                         </a>
 
+                           <a href="'.route('studentSingleCard', ['id' =>  $row->Sid ]).'" class="btn btn-secondary  text-danger " target="_blank">
+                        <i class="bx bx-download" style="color:#bbec93"  ></i>
+                        </a>
+
                         ';
                             } elseif ($user->hasPermissionTo('edit-student')) {
                                 return '<div class="btn-group"> <a href="javascript:void(0)" class="infobutton btn-secondary btn" data-id="' .
@@ -117,6 +124,9 @@ namespace App\Http\Controllers\institute_manager;
                                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="24px" fill="#3C91E6"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                             </a>
 
+                              <a href="'.route('studentSingleCard', ['id' =>  $row->Sid ]).'" class="btn btn-secondary  text-danger " target="_blank">
+                        <i class="bx bx-download" style="color:#bbec93"  ></i>
+                        </a>
 
                             ';
                             } elseif ($user->hasPermissionTo('delete-student')) {
@@ -133,6 +143,9 @@ namespace App\Http\Controllers\institute_manager;
                             <svg xmlns="http://www.w3.org/2000/svg" height="20px" class="text-danger" viewBox="0 0 24 24" width="24px" fill="#F08080"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
                             </a>
 
+                               <a href="'.route('studentSingleCard', ['id' =>  $row->Sid ]).'" class="btn btn-secondary  text-danger " target="_blank">
+                        <i class="bx bx-download" style="color:#bbec93"  ></i>
+                        </a>
                             ';
                             } else {
                                 return '<div class="btn-group"> <a href="javascript:void(0)" class="infobutton btn-secondary btn" data-id="' .
@@ -141,6 +154,9 @@ namespace App\Http\Controllers\institute_manager;
                             <svg class="filament-link-icon w-4 h-4 mr-1 " style="width: 1.5em; height: 1.5em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"> <path d="M433 203.2H213c-22 0-40 18-40 40v220c0 22 18 40 40 40h220c22 0 40-18 40-40v-220c0-22-18-40-40-40z m0 260l-219.9 0.1s-0.1 0-0.1-0.1V243.3s0-0.1 0.1-0.1H433s0.1 0 0.1 0.1l-0.1 219.9zM702.5 203.2c-82.5 0-150 67.5-150 150s67.5 150 150 150 150-67.5 150-150-67.5-150-150-150z m77.7 227.7c-20.9 20.9-48.4 32.3-77.7 32.3-29.2 0-56.8-11.5-77.7-32.3-20.9-20.9-32.3-48.4-32.3-77.7 0-29.2 11.5-56.8 32.3-77.7 20.9-20.9 48.4-32.3 77.7-32.3 29.2 0 56.8 11.5 77.7 32.3 20.9 20.9 32.3 48.4 32.3 77.7 0 29.2-11.5 56.8-32.3 77.7zM431.3 564.2h-220c-22 0-40 18-40 40v220c0 22 18 40 40 40h220c22 0 40-18 40-40v-220c0-22-18-40-40-40z m0 260l-219.9 0.1s-0.1 0-0.1-0.1V604.3s0-0.1 0.1-0.1h219.9s0.1 0 0.1 0.1l-0.1 219.9zM812.5 564.2h-220c-22 0-40 18-40 40v220c0 22 18 40 40 40h220c22 0 40-18 40-40v-220c0-22-18-40-40-40z m0 260l-219.9 0.1s-0.1 0-0.1-0.1V604.3s0-0.1 0.1-0.1h219.9s0.1 0 0.1 0.1l-0.1 219.9z"  fill="#5ABE64" /></svg>
                             </a>
 
+                               <a href="'.route('studentSingleCard', ['id' =>  $row->Sid ]).'" class="btn btn-secondary  text-danger " target="_blank">
+                        <i class="bx bx-download" style="color:#bbec93"  ></i>
+                        </a>
 
 
                             ';
@@ -194,6 +210,7 @@ namespace App\Http\Controllers\institute_manager;
               
 
                 $rules = [
+                    
                     'name' => 'required|min:3|max:30',
                     'city' => 'required|integer',
                     'fname' => 'required',
@@ -207,6 +224,7 @@ namespace App\Http\Controllers\institute_manager;
                         'required',
                         'numeric',
                     ],
+                    'download_card' =>'required|in:0,1',
                     'persentage' => 'numeric|max:100',
                     'semester_type' => 'required|in:0,1',
                 ];
@@ -249,7 +267,7 @@ namespace App\Http\Controllers\institute_manager;
                 $last_student_id = DB::table('students')->orderBy('Sid', 'desc')->first()->Sid + 1;
 
                 // student class and shifting
-                $select_class_id;
+                $select_class_id ='';
                 $class_id = DB::table('students')
                     ->join('student_enrol_classes', 'Sid', '=', 'student_id')
                     ->where('Inid', $inid)
@@ -427,6 +445,7 @@ namespace App\Http\Controllers\institute_manager;
         $student->pdf = $infopdf;
         $student->DOB = $req->DOB;
         $student->city = $req->city;
+        $student->start_year = Setting::getCurrentYear();
         $student->phone = $req->phone;
         $student->created_at = now();
         $student->save();
@@ -440,12 +459,29 @@ namespace App\Http\Controllers\institute_manager;
             'shift_id' => $req->shift,
         ]);
 
+
+            //   $cardController = new CardController();
+            //  return  $cardController->downloadCardKey($student->Sid); // Ensure Sid is the correct primary key field
+
+                if($req->download_card ==1){
+                  $cardUrl = route('studentSingleCard', ['id' => $student->Sid]);
+
+                    return response()->json(
+                        [
+                            'message' => 'Successfuly add Student',
+                            'cardUrl' =>$cardUrl,
+                        ],
+                        201,
+                    );
+
+                }
                     return response()->json(
                         [
                             'message' => 'Successfuly add Student',
                         ],
                         201,
                     );
+                
                 }
             }
 
@@ -524,22 +560,35 @@ namespace App\Http\Controllers\institute_manager;
               // Filter students by the specified range
             
 
+              
     $data = [
         'students' => $studentsInRange,
         'institute' => $inst_name,
     ];
+    
               //   return  $data['institute'][0]->institute_name;
     
               $mpdf = new Mpdf();
               $mpdf->autoScriptToLang = true;
               $mpdf->autoLangToFont = true;
+
+
               $mpdf->WriteHTML(view('user.institute.student.studentcards', $data));
+              
 
               $mpdf->Output();
 
               //   $mpdf->WriteHTML($pdf);
               //   $mpdf->Output();
   }
+
+
+
+
+
+
+
+
           public function download_cards_count()
           {
               $inid = session()->get('Inid');

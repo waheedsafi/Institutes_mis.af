@@ -7,7 +7,14 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\institutecontroller;
 use App\Http\Controllers\Admin\departmentController;
 use App\Http\Controllers\Admin\permissionController;
+use App\Http\Controllers\Admin\setting\SettingController;
 
+
+  Route::get('Setting/CurrentYear',[SettingController::class,'CurrentYear'])->name('SettingCurrentYear');
+
+
+  Route::get('App/Setting',[SettingController::class,'Index'])->name('SettingIndex');
+  
 
 Route::group(['prefix' => 'user'],function(){
 

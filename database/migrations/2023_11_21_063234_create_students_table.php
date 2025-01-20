@@ -42,6 +42,7 @@ return new class extends Migration
             $table->string('g_f_name',64);
             $table->string('school_graduation',32)->nullabel()->comment('school graduation date');
             $table->string('kankur_no',64);
+            $table->string('start_year',8);
             $table->unsignedBigInteger('Inid');
             $table->foreign('Inid')->references('Inid')->on('institutes')
             ->onUpdate('cascade')
@@ -50,7 +51,6 @@ return new class extends Migration
             $table->foreign('Did')->references('Did')->on('departments')
             ->onUpdate('cascade')
             ->onDelete('no action');
-           
             $table->string('status')->default('new')->comment('new,active,graduted');
             $table->boolean('gender');
             $table->string('photo',256);
