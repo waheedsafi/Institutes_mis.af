@@ -298,6 +298,25 @@
 
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="phone">Download Card</label>
+                                      
+                                        <label class='form-control'>
+                                     <label>
+                                        <input type="radio" name="download_card" value="1" checked>
+                                            Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="download_card" value="0" >
+                                        No
+                                    </label>
+                                        </label>
+                                        <span id="phoneerror" class="text-danger error"></span>
+
+                                    </div>
+                                </div>
+                                
 
                             </div>
                             <div class="p-3">
@@ -1169,6 +1188,11 @@ $('#download_cards').click(function(e) {
 
                             swal("Success!", response.message, "success");
 
+                            if(response.cardUrl){
+                               
+                                window.open(response.cardUrl, '_blank');
+
+                            }
                             //   table.draw();
                             $('#studentform')[0].reset();
                             $('#id').val('');
@@ -1180,6 +1204,7 @@ $('#download_cards').click(function(e) {
                                 $('.clsview-student').show();
                             }
 
+                            
 
                         }
 

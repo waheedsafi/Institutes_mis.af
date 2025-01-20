@@ -28,4 +28,12 @@ class Student extends Model
         return $this->hasMany(StudentEnrolClass::class, 'student_id');
     }
 
+    public function institute(){
+        return $this->belongsTo(Institute::class,'Inid','Inid');
+    }
+
+     public function department(){
+        return $this->belongsTo(Department::class,'Did','Did');
+    }
+
 }

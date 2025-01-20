@@ -49,5 +49,12 @@
 			<p>Subject</p>
 		</a>
 	</li>
+
+	<li class="nav-item">
+		<a href="{{route('SettingIndex')}}" class="nav-link">
+			<i class="nav-icon fas fa-cog"></i>
+			<p>App Setting</p>
+		</a>
+	</li>
 				
 </ul>
