@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('Did');
             $table->string('department_name',64)->unique();
             $table->integer('Semester_no');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

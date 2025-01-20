@@ -177,7 +177,8 @@ use App\Models\Setting;
             {
                 $inid = session()->get('Inid');
 
-                $depdata = DB::table('departments')->join('inst_dep_list', 'inst_dep_list.Did', '=', 'departments.Did')->select('departments.Did', 'department_name')->where('inst_dep_list.Inid', $inid)->get();
+                $depdata = DB::table('departments')->join('inst_dep_list', 'inst_dep_list.Did', '=', 'departments.Did')->select('departments.Did', 'department_name')->where('inst_dep_list.Inid', $inid)->
+                where('departments.is_active',1)->get();
 
                 $datacity = DB::table('citys')->select('id', 'city')->get();
 
