@@ -115,8 +115,8 @@
                     <div class="order">
                         <div class="head">
                             <h3 class="text-" id="addstu_header"></h3>
-                            <h6 style="direction:rtl">نوټ:په لاندنی فورمه کی یوازی هغه محصلین راجستر کړی کوم چی په لومړی سمستر کی وي او نوم لیکنه باید په ملي ژبو وي، انګلیسي د منلو وړ نه ده
-                                <br> توجه: فقط دانشجویانی که سمستر اول هستند می توانید در فرم زیر ثبت نام کنید و ثبت نام باید به زبان های ملی باشد، انگلیسی قابل قبول نیست
+                            <h6 style="direction:rtl">نوټ:په لاندنی فورمه کی یوازی هغه محصلین راجستر کړی کوم چی د ۱۴۰۴ کال پسرلینی سمستر ته ثبت نام کوی او نوم لیکنه باید په ملي ژبو وي، انګلیسي د منلو وړ نه ده
+                                <br> توجه: فقط دانشجویانی که سمستر اول سال ۱‍۴۰۴ ثبت نام می نماید راجستر نماید و ثبت نام باید به زبان های ملی باشد، انگلیسی قابل قبول نیست
 
                             </h6>
                             <div class="row">
@@ -182,9 +182,10 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="gender">Gender*</label>
-                                        <select name="gender" class="form-control" id="gender">
-                                            <option value="1">Male</option>
-                                            <option value="0">Female</option>
+                                        <select disabled name="gender" class="form-control" id="gender">
+                                            <option selected value="1">Male</option>
+                                            <!-- <option  value="1">Male</option> -->
+                                            <!-- <option value="0">Female</option> -->
                                         </select>
                                         <span id="gendererror" class="text-danger error"></span>
 
